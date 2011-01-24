@@ -5,14 +5,14 @@ function ajax_request()
 {
 	//alert("asd");
 	obj=new XMLHttpRequest();
-	obj.open('get','http://m.goal.com/en-us/scores/live?SID=omlvdfaot189ilov6kmauupch4',true);
+	obj.open('get','http://m.goal.com/en-us/scores/live',true);
 	obj.onreadystatechange = ajax_fetch;
 	obj.send(null);
 }
 
 function ajax_fetch()
 {
-		
+
 		if (obj.readyState == 4)
 		{
 			document.getElementById('content').innerHTML=obj.responseText;
@@ -25,3 +25,4 @@ function ajax_fetch()
 <div id="content">
 
 </div>
+
