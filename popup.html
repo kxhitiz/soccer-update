@@ -1,0 +1,27 @@
+<script>
+var obj;
+
+function ajax_request()
+{
+	//alert("asd");
+	obj=new XMLHttpRequest();
+	obj.open('get','http://m.goal.com/en-us/scores/live?SID=omlvdfaot189ilov6kmauupch4',true);
+	obj.onreadystatechange = ajax_fetch;
+	obj.send(null);
+}
+
+function ajax_fetch()
+{
+		
+		if (obj.readyState == 4)
+		{
+			document.getElementById('content').innerHTML=obj.responseText;
+		}
+ }
+
+</script>
+
+<body onload='ajax_request()'>
+<div id="content">
+
+</div>
