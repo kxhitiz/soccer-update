@@ -18,11 +18,31 @@ function ajax_fetch()
 			document.getElementById('content').innerHTML=obj.responseText;
 		}
  }
+ 
+ function getPermission(callback)
+ {
+	windows.webkitNotifications.requestPermission(callback);
+ }
+ 
+ function notification()
+ {
+	if (window.webkitNotifications.checkPermission() > 0)
+		getPermission(notification);
+	
+	var icon="img/icon48.png";
+	var title="title";
+	var desc="description";
+	var popup= window.webkitNotifications.createNotification(icon,title,desc);
+	popup.show();
+	
+	setTileout( function() {
+			popup.cancle();},'5000');
+	
+ }
 
+ notification();
 </script>
 
 <body onload='ajax_request()'>
-<div id="content">
-
-</div>
-
+Here is the Content:
+<div id="content">I am content</div>
